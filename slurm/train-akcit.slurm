@@ -7,7 +7,6 @@
 
 # Specific configuration optimized for the Hugging Face Compute Cluster
 # Be ye warned this may not work on other clusters!
-module load nvhpc-hpcx-cuda12/24.9
 module load conda
 
 set -x -e
