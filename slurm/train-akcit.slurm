@@ -12,9 +12,8 @@ module load conda
 
 set -x -e
 
-source ~/.bashrc
-conda init
-conda activate openr1
+source /cm/shared/apps/conda/etc/profile.d/conda.sh
+
 echo "START TIME: $(date)"
 
 MODEL=$1
