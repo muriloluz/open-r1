@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=aluno_muriloluz_open_r1
 #SBATCH --ntasks-per-node=1
-#SBATCH --gres=gpu:4
 #SBATCH --partition=defq  # Adjust this for your cluster
 #SBATCH --output=./logs/%x-%j.out
 #SBATCH --err=./logs/%x-%j.err
