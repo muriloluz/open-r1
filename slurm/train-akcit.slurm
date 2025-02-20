@@ -1,7 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name=open-r1-sft
+#SBATCH --job-name=aluno_muriloluz_open_r1
 #SBATCH --ntasks-per-node=1
-#SBATCH --exclusive
 #SBATCH --gres=gpu:4
 #SBATCH --partition=defq  # Adjust this for your cluster
 #SBATCH --output=./logs/%x-%j.out
@@ -25,7 +24,7 @@ OPTIONAL_ARGS=$5
 
 # Training setup
 NUM_NODES=$SLURM_NNODES
-GPUS_PER_NODE=8
+GPUS_PER_NODE=4
 WORLD_SIZE=$(($NUM_NODES*$GPUS_PER_NODE))
 # Due to conflicts between Accelerate's DeepSpeed configs and Transformers' TrainingArguments, we need to parse the gradient accumulation steps from the config file to ensure they match
 CONFIG_FILE=recipes/$MODEL/$TASK/config_$CONFIG_SUFFIX.yaml
