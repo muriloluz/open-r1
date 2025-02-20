@@ -12,6 +12,7 @@ module load nvhpc-hpcx-cuda12/24.9
 set -x -e
 
 source ~/.bashrc
+conda init
 conda activate openr1
 echo "START TIME: $(date)"
 
