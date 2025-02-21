@@ -43,8 +43,10 @@ rm get-pip.py
 RUN python3.11 -m pip install --upgrade pip
 RUN python3.11 -m pip install vllm==0.7.2 accelerate huggingface-hub wandb
 
-WORKDIR /app
-RUN git clone https://github.com/muriloluz/open-r1
+# WORKDIR /app
+# RUN git clone https://github.com/muriloluz/open-r1
+
+RUN git pull
 
 WORKDIR /app/open-r1
 
