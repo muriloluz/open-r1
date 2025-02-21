@@ -16,6 +16,10 @@ fp16: true
 use_vllm: true
 vllm_device: auto
 vllm_gpu_memory_utilization: 0.4
+vllm_dtype: float16
+vllm_config:
+  enable_chunked_prefill: false
+  enable_prefix_caching: false
 dtype: float16
 do_eval: false
 gradient_accumulation_steps: 16
@@ -53,8 +57,3 @@ save_strategy: "epoch"
 save_total_limit: 1
 seed: 42
 warmup_ratio: 0.1
-
-model_dtype: float16
-vllm_dtype: float16
-enable_chunked_prefill: false
-enable_prefix_caching: false
