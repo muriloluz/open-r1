@@ -15,7 +15,7 @@ bf16: false
 fp16: true
 use_vllm: true
 vllm_device: auto
-vllm_gpu_memory_utilization: 0.5
+vllm_gpu_memory_utilization: 0.4
 dtype: float16
 do_eval: false
 gradient_accumulation_steps: 16
