@@ -50,7 +50,7 @@ done
 echo "Gradient accumulation steps: $GRAD_ACC_STEPS"
 # so processes know who to talk to
 MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 1)
-MASTER_PORT=6000
+MASTER_PORT=6001
 
 export CMD=" \
     src/open_r1/$TASK.py --config $CONFIG_FILE $OPTIONAL_ARGS
