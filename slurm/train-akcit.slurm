@@ -7,11 +7,12 @@
 
 # Specific configuration optimized for the Hugging Face Compute Cluster
 # Be ye warned this may not work on other clusters!
+module load nvhpc-hpcx-cuda12/24.9
 module load conda
 
 set -x -e
 
-source /cm/shared/apps/conda/etc/profile.d/conda.sh
+conda init && conda activate openr1
 
 echo "START TIME: $(date)"
 
