@@ -10,6 +10,7 @@
 
 
 module load conda
+module load cuda12.6
 
 set -x -e
 
