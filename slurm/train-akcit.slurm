@@ -8,11 +8,13 @@
 # Specific configuration optimized for the Hugging Face Compute Cluster
 # Be ye warned this may not work on other clusters!
 
+
 module load conda
 
 set -x -e
 
 source /cm/shared/apps/conda/etc/profile.d/conda.sh
+conda activate openr1
 
 echo "START TIME: $(date)"
 
