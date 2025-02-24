@@ -173,7 +173,7 @@ def main(script_args, training_args, model_args):
         if training_args.system_prompt is not None:
             prompt.append({"role": "system", "content": training_args.system_prompt})
 
-        prompt.append({"role": "user", "content": example["question"]})
+        prompt.append({"role": "user", "content": example["problem"]})
         return {"prompt": prompt}
 
     dataset = dataset.map(make_conversation)
