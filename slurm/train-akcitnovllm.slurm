@@ -1,10 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=aluno_muriloluz_open_r1
 #SBATCH --ntasks-per-node=1
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:8
 #SBATCH --partition=defq  # Adjust this for your cluster
 #SBATCH --output=./logs/%x-%j.out
 #SBATCH --err=./logs/%x-%j.err
+#SBATCH --nodelist=dgx-01
 
 # Specific configuration optimized for the Hugging Face Compute Cluster
 # Be ye warned this may not work on other clusters!
@@ -28,12 +29,11 @@ OPTIONAL_ARGS=$5
 
 # Training setup
 NUM_NODES=$SLURM_NNODES
-GPUS_PER_NODE=4
+GPUS_PER_NODE=8
 WORLD_SIZE=$(($NUM_NODES*$GPUS_PER_NODE))
 # Due to conflicts between Accelerate's DeepSpeed configs and Transformers' TrainingArguments, we need to parse the gradient accumulation steps from the config file to ensure they match
 CONFIG_FILE=recipes/$MODEL/$TASK/config_$CONFIG_SUFFIX.yaml
 GRAD_ACC_STEPS=$(grep 'gradient_accumulation_steps' $CONFIG_FILE | awk '{print $2}')
-
 
 # Split the string into individual arguments
 IFS=' ' read -ra ARGS <<< "$OPTIONAL_ARGS"
@@ -50,7 +50,7 @@ done
 echo "Gradient accumulation steps: $GRAD_ACC_STEPS"
 # so processes know who to talk to
 MASTER_ADDR=$(scontrol show hostnames $SLURM_JOB_NODELIST | head -n 1)
-MASTER_PORT=6001
+MASTER_PORT=6000
 
 export CMD=" \
     src/open_r1/$TASK.py --config $CONFIG_FILE $OPTIONAL_ARGS
