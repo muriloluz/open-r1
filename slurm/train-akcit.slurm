@@ -5,6 +5,7 @@
 #SBATCH --partition=defq  # Adjust this for your cluster
 #SBATCH --output=./logs/%x-%j.out
 #SBATCH --err=./logs/%x-%j.err
+#SBATCH --nodelist=dgx-01
 
 # Specific configuration optimized for the Hugging Face Compute Cluster
 # Be ye warned this may not work on other clusters!
