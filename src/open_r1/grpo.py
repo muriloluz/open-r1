@@ -246,8 +246,8 @@ def main(script_args, training_args, model_args):
     ##########
     # Evaluate
     ##########
-    if training_args.do_eval != "no":
-        logger.info("*** Evaluate ***")
+    if training_args.do_eval:
+        logger.info("*** Evaluate AKI***")
         metrics = trainer.evaluate()
         metrics["eval_samples"] = len(dataset[script_args.dataset_test_split])
         trainer.log_metrics("eval", metrics)
