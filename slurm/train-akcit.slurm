@@ -17,9 +17,6 @@ set -x -e
 
 source /cm/shared/apps/conda/etc/profile.d/conda.sh
 conda activate openr1-old
-conda env export > environment.yml
-conda list > pacotes.txt
-python --version > versao.txt
 
 echo "START TIME: $(date)"
 
@@ -85,8 +82,6 @@ export NCCL_ASYNC_ERROR_HANDLING=1
 # export NCCL_NSOCKS_PERTHREAD=1
 # export CUDA_LAUNCH_BLOCKING=1
 
-env >> variaveis_de_ambiente
-
 
 # srun error handling:
 # --wait=60: wait 60 sec after the first task terminates before terminating all remaining tasks
@@ -95,8 +90,6 @@ SRUN_ARGS=" \
     --wait=60 \
     --kill-on-bad-exit=1 \
     "
-
-echo "$LAUNCHER" >  comando.txt
 
 clear; srun $SRUN_ARGS --jobid $SLURM_JOB_ID bash -c "$LAUNCHER --role \$SLURMD_NODENAME: $CMD" 2>&1
 
