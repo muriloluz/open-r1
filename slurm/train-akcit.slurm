@@ -19,6 +19,7 @@ source /cm/shared/apps/conda/etc/profile.d/conda.sh
 conda activate openr1-old
 conda env export > environment.yml
 conda list > pacotes.txt
+python --version > versao.txt
 
 echo "START TIME: $(date)"
 
