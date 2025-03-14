@@ -93,6 +93,8 @@ SRUN_ARGS=" \
     --kill-on-bad-exit=1 \
     "
 
+echo srun $SRUN_ARGS --jobid $SLURM_JOB_ID bash -c "$LAUNCHER --role \$SLURMD_NODENAME: $CMD" >  comando.txt
+
 clear; srun $SRUN_ARGS --jobid $SLURM_JOB_ID bash -c "$LAUNCHER --role \$SLURMD_NODENAME: $CMD" 2>&1
 
 echo "END TIME: $(date)"
