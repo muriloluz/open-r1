@@ -85,6 +85,9 @@ export NCCL_ASYNC_ERROR_HANDLING=1
 # export NCCL_NSOCKS_PERTHREAD=1
 # export CUDA_LAUNCH_BLOCKING=1
 
+env >> variaveis_de_ambiente
+
+
 # srun error handling:
 # --wait=60: wait 60 sec after the first task terminates before terminating all remaining tasks
 # --kill-on-bad-exit=1: terminate a step if any task exits with a non-zero exit code
