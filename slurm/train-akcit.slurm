@@ -16,7 +16,7 @@ module load cuda12.6
 set -x -e
 
 source /cm/shared/apps/conda/etc/profile.d/conda.sh
-conda activate openr1
+conda activate openr1-old
 
 echo "START TIME: $(date)"
 
